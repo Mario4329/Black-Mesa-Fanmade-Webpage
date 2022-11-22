@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<html lang="eng">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+</html>
+
+<main>
+  <h1>Lets check the data</h1>
+  <div id="data"></div>
+  <div>
+    <button id="btn">Confirm</button>
+  </div>
+</main>
+
+<script>
+  const json = localStorage.getItem("form");
+  const obj = JSON.parse(json);
+
+  for (key in obj) {
+    const markup = (
+      <div>
+        <span>
+          ${key}: ${obj[key]}
+        </span>
+      </div>
+    );
+    document.getElementById("data").innerHTML += markup;
+  }
+</script>
